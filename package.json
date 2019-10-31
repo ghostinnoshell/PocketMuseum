@@ -1,0 +1,19 @@
+{
+  "name": "pocketmuseum",
+  "version": "1.0.0",
+  "description": "Final Project for COMP426 by Group X",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghostinnoshell/PocketMuseum.git"
+  },
+  "author": "Yichen Wu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ghostinnoshell/PocketMuseum/issues"
+  },
+  "homepage": "https://github.com/ghostinnoshell/PocketMuseum#readme"
+}
