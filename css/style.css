@@ -3,6 +3,18 @@
     opacity: 0.9;
 }
 
+.about-bg{
+    background-image: url("../img/about_bg.jpg");
+    opacity: 0.9;
+    background-size:cover;
+}
+
+.contact-bg{
+    background-image: url("../img/contact_bg.jpg");
+    opacity: 0.9;
+    background-size:cover;
+}
+
 .logo{
     font-family: Arial, Helvetica, sans-serif;
 }
