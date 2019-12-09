@@ -1,0 +1,8 @@
+.hero-bg{
+    background-image: url("../img/bg.jpg");
+    opacity: 0.9;
+}
+
+.logo{
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ghostinnoshell/PocketMuseum/issues"
   },
-  "homepage": "https://github.com/ghostinnoshell/PocketMuseum#readme"
+  "homepage": "https://github.com/ghostinnoshell/PocketMuseum#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bulma": "^0.8.0"
+  }
 }
