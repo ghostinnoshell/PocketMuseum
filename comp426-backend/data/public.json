@@ -1,7 +1,7 @@
 {
   "authors": {
-    "Pierce Brown": {},
-    "Brandon Sanderson": {},
-    "Michael J. Sullivan": {}
+    "first": "chris",
+    "last": "Doe",
+    "numBooks": 4
   }
 }

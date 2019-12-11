@@ -1,2 +1,80 @@
 {
+  "users": {
+    "chris": {
+      "passwordHash": "$2b$10$p2Az7K9Mtfm8bql92NvtTuS/Aso6EMWhqHS0XhhS1akR5oy0X33Ci",
+      "data": {
+        "role": 2,
+        "description": "Lazy..."
+      }
+    },
+    "haochen": {
+      "passwordHash": "$2b$10$OjWFEVIXaDxpeVKYrSIVXuPYa9FXzQlGaRTf2VjrRpGSxGtm9wA0W",
+      "data": {
+        "role": 2,
+        "description": "Lazy..."
+      }
+    },
+    "haochen1": {
+      "passwordHash": "$2b$10$EvOepqKVTYK1CWZuYl3xXu1H5Kzz4zLIob.kVEdL5StxBECegx8Mm",
+      "data": {
+        "role": 2,
+        "description": "Lazy..."
+      }
+    },
+    "cc": {
+      "passwordHash": "$2b$10$Q3BkFDnxkff7Gvbzf2mJueySka6hGnMMM1A4ReILnHYsyiYlkIVCS",
+      "data": {
+        "description": "A new user"
+      }
+    },
+    "d": {
+      "passwordHash": "$2b$10$sSpNcY2cGBQxVxg88J8iU.HjLIeU.kvl0DK7./H.9CJK8R6J16frC",
+      "data": {
+        "description": "A new user"
+      }
+    },
+    "a": {
+      "passwordHash": "$2b$10$RfC2ak5KQh.dm7wvPWW11el.KxANSW49Z5QaiHFIFiOjvFundMBb.",
+      "data": {
+        "description": "A new user"
+      }
+    },
+    "lil pump": {
+      "passwordHash": "$2b$10$MwbTBjaLWshFoL37ruG7N.dg.4ZxoPTLaUdlFYps4BoHnh9zFPRGC",
+      "data": {
+        "description": "A new user"
+      }
+    },
+    "haochenqi": {
+      "passwordHash": "$2b$10$HlEE4sQEwC9351YHxLdiOOAd/iluDRKZj9ZXgySrRpjyYGvcj5K2i",
+      "data": {
+        "role": 2,
+        "description": "and i oop."
+      }
+    },
+    "yanli": {
+      "passwordHash": "$2b$10$tySLGG2eU8iE9KF39fD35.gf1nJ/xgasc8.y0ZMHqyujZ.fnkCa2W",
+      "data": {
+        "description": "A new user"
+      }
+    },
+    "hc": {
+      "passwordHash": "$2b$10$FrN9i5aZfeOhlzArO3CpLOENrtytv3zbQD1vQ0iV62j16VoSGFlbe",
+      "data": {
+        "description": "A new user"
+      }
+    },
+    "hihihihihi": {
+      "passwordHash": "$2b$10$/ZfgUB.V62pn3t5r1sMIJ.r/lX0Lv.tyzlOA8XpspEQURCMytEYCy",
+      "data": {
+        "description": "A new user"
+      }
+    },
+    "test": {
+      "passwordHash": "$2b$10$sWuiIuEH1AkeZAyVrLcjmuICQHQ1HesucYq3yukxGTuSbdd7BwKdu",
+      "data": {
+        "description": "A new user"
+      }
+    }
+  }
 }
