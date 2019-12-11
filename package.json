@@ -18,6 +18,9 @@
   "homepage": "https://github.com/ghostinnoshell/PocketMuseum#readme",
   "dependencies": {
     "axios": "^0.19.0",
-    "bulma": "^0.8.0"
+    "browserfy": "^1.0.0",
+    "browserify": "^16.5.0",
+    "bulma": "^0.8.0",
+    "requirejs": "^2.3.6"
   }
 }
