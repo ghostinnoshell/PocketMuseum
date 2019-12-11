@@ -22,7 +22,7 @@ export function getSignupInfo() {
             "pass": passwd,
             // "email": email,
             "data": {
-                "description": "A new user"
+                "description": email
             }
         };
         async function createAccount() {
@@ -33,20 +33,45 @@ export function getSignupInfo() {
             });
             return response.status;
         }
-        let response = createAccount();
-        alert(`${response}`);
+        createAccount().then(function(status) {
+            if (status == 200) {
+                alert(`Account Successfully Created!`);
+                window.location.replace("index.html");
+            }
+        });
 
     }
 
 }
 /**
- * This function 
+ * This function handle log in 
  */
 export function getLoginInfo() {
     //select input username
     let userName = $("input.userName[type=userName]").val();
     let passwd = $("input.passWord[type=password]").val();
-    alert(`${userName}`);
+    let content = {
+        "name": userName,
+        "pass": passwd,
+    }
+    async function LoginAccount() {
+        const response = await axios({
+            method: 'post',
+            url: `http://localhost:3000/account/login`,
+            data: content,
+        });
+        return response;
+    }
+    LoginAccount().then(function(response) {
+        let jwtToken = response.jwt;
+        if (response.status == 200) {
+            alert(`Successfully Loged in`);
+            window.location.replace("index.html");
+        } else if (response.status == 401) {
+            alert(`Please Sign Up First!`);
+        }
+    });
+
 }
 
 
