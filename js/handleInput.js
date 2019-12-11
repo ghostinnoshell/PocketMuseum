@@ -39,6 +39,9 @@ export function getSignupInfo() {
             if (status == 200) {
                 alert(`Account Successfully Created!`);
                 window.location.replace("index.html");
+            } else {
+                alert("Something goes wrong!");
+                location.reload();
             }
         });
 
@@ -67,24 +70,36 @@ export function getLoginInfo() {
         "name": userName,
         "pass": passwd,
     }
-    alert("login oage");
+    alert("login page");
     async function LoginAccount() {
         const response = await axios({
             method: 'post',
             url: `http://localhost:3000/account/login`,
             data: content,
+            // headers: { Authorization: `Bearer ${jwt}` }
+
         });
         return response;
     }
     LoginAccount().then(function(response) {
-        let jwtToken = response.jwt;
-        //alert(jwtToken)
-        if (response.status == 200) {
-            alert(`Successfully Loged in`);
-            window.location.replace("index.html");
-        } else if (response.status == 401) {
-            alert(`Please Sign Up First!`);
+        let jwtToken = response.data.jwt;
+        alert(jwtToken)
+        localStorage.setItem(`${userName}`, `Bearer ${jwtToken}`);
+        alert(localStorage.getItem(`${userName}`))
+        try {
+            if (response.status == 200) {
+                alert(`Successfully Logged in`);
+                //alert(jwtToken)
+                //window.location.replace("index.html");
+                window.location.replace("myCenter.html");
+            }
+        } catch (err) {
+            alert(err.message);
         }
+        // else if (response.status == 401) {
+        //     alert(`Cannot verify your account, please try again!`);
+        //     location.reload();
+        // }
     });
 
 }
