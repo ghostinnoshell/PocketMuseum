@@ -2,6 +2,7 @@
 $(function () {
 
     let userName = localStorage.getItem('current');
+    // alert(userName);
     $('#userName').replaceWith(`<div id = "userName">${userName}</div>`);
     $('#name').replaceWith(`<div id = "name">${userName}</div>`);
     eventHandler();
@@ -11,7 +12,10 @@ function updateInfo() {
     let newPhoneNumber = document.getElementById("phoneNumber").value;
     let newEmail = document.getElementById("email").value;
     // alert(newPhoneNumber);
-    alert(newEmail);
+    // alert(newEmail);
+    let userName = localStorage.getItem('current');
+    let jwt = localStorage.getItem(`${userName}`);
+    // alert(jwt);
 
     let content = {
         "phone": newPhoneNumber,
@@ -29,6 +33,7 @@ function updateInfo() {
         return response;
     }
     personalInfo();
+
 
 }
 
