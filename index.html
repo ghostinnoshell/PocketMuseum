@@ -131,7 +131,7 @@
                                         b = document.createElement("DIV");
                                         /*make the matching letters bold:*/
                                         b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                                        b.innerHTML += arr[i].substr(val.length);
+                                        b.innerHTML += "<a style = 'color:black'>" + arr[i].substr(val.length) + "</a>";
                                         /*insert a input field that will hold the current array item's value:*/
                                         b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
                                         /*execute a function when someone clicks on the item value (DIV element):*/
@@ -207,7 +207,22 @@
                         }
 
                         /*An array containing all the country names in the world:*/
-                        var countries = ["china"];
+                        var countries = ["One-dollar Liberty Head Coin", "Ten-dollar Liberty Head Coin", "Two-and-a-Half Dollar Coin", "Two-and-a-half-dollar Indian Head Coin", "Two-and-a-half-dollar Liberty Head Coin", "Twenty-dollar Liberty Head Coin", "Five-dollar Indian Head Coin", "Five-dollar Liberty Head Coin", "Coin, 1/2 Real", "Coin, 1/4 Peso"
+
+                            , "Coin, 1/4 Real", "Coin, 10 Centavos", "Coin, 20 Pesos", "Bust of Abraham Lincoln", "Acorn Clock", "The Adams Vase", "Side Chair", "Figure of Admiral George Rodney", "Figure of Admiral Samuel Hood", "Advertisement for Norwich Stone Ware Factory"
+
+                            , "Ale Glass", "Andiron", "Apothecary Jar", "Figure of an Apple", "Statuette: Arab Waiter and Tray", "Frame", "Architectural Elements", "Architectural elements from Halsted House, Rye, New York", "Architectural Elements from Laurelton Hall, Oyster Bay, New York", "Architectural elements from North Family Dwelling, New Lebanon, New York"
+
+                            , "Argand lamp", "Argand Lamp", "Lamp Shade", "Three-legged Armchair", "Turned Armchair", "Banister-back armchair", "Armchair", "Heads and Feet of Two Javanese Dancers (from Sketchbook of Javanese Dancers)", "Slat-back armchair", "Cane armchair"
+
+                            , "Spindle-back armchair", "Leather armchair", "Turned armchair", "Hunting Birds, after Egyptian Relief Sculpture (from Scrapbook)", "Splat-back armchair", "Teapot", "Rocking Chair", "Reclining Armchair", "Folding Armchair", "Side chair"
+
+                            , "Revolving Armchair", "Square-back armchair", "Child's Armchair", "Furniture Hardware", "Astral Lamp", "Autumn Landscape", "Aviary", "Figure of a Baby in a Cradle Holding a Kitten", "Baby's Bottle", "Badge of the Cincinnati Medal", "Baking Dish", "Balcony", "Ball", "Panel from the Ballroom at Gadsby's Tavern, Alexandria, Virginia", "Baluster from the Carson, Pirie, Scott Company, Chicago", "Baluster from the Chicago Stock Exchange Building, Chicago", "Baluster from the Guaranty Building, Buffalo, New York", "Baluster Vase", "Banjo clock", "Banjo Clock"
+
+                            , "Bank", "Baptismal Basin", "Baptismal Bowl", "Baptismal Certificate", "Bar Bottle", "Barrel Mug", "Keg", "Basin", "Wash basin", "Basin Stand"
+
+                            , "Basin stand", "Basket", "Batten Door from the Williams House, near Preston, Connecticut", "Oil Cruet", "Beaker", "Pulque Beaker", "Tumbler", "Beaker Vase", "Covered Bean Pot", "Bear figure and spill holder", "Folding Bedstead", "Bedstead", "Bedstead from the Henry Gurdon Marquand House, New York City", "Bell", "Bell Pull", "Bellows", "Bench", "Sleigh Seat", "Figure of Benjamin Franklin", "Plaque Portrait of Benjamin Franklin", "Portrait of Benjamin Franklin", "Bust of Benjamin Franklin", "Cameo Medallion of Benjamin Franklin", "Medallion of Benjamin Franklin", "Mask Cast of Benjamin Franklin", "Portrait Miniature of Benjamin Franklin", "Portrait Panel of Benjamin Franklin", "Portrait Bust of Benjamin Franklin", "Profile Bust of Benjamin Franklin"
+                        ];
                         /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
                         autocomplete(document.getElementById("myInput"), countries);
                     </script>
