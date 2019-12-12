@@ -38,7 +38,7 @@ export function getSignupInfo() {
             alert(status)
             if (status == 200) {
                 alert(`Account Successfully Created!`);
-                window.location.replace("index.html");
+                window.location.replace("login.html");
             } else {
                 alert("Something goes wrong!");
                 location.reload();

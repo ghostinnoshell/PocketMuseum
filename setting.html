@@ -18,7 +18,7 @@
             <div class="navbar-brand">
                 <a class="navbar-item" href="index.html">
                     <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-                    <h3 class="is-bold is-family-sans-serif	 has-text-weight-bold	">POCKETMUSEUM</h3>
+                    <h3 class="is-bold is-family-sans-serif  has-text-weight-bold   ">POCKETMUSEUM</h3>
                 </a>
 
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
@@ -98,7 +98,7 @@
                                 <label for="" class="label">User Name</label>
                                 <div class="control has-icons-left columns">
                                     <div class="column is-three-quarters">
-                                        <input type="userName" placeholder="e.g. bobsmith" class="input" required>
+                                        <div id="userName">put your fetched user name here</div>
                                         <span class="icon is-small is-left">
                                             <i class="fa fa-user-circle"></i>
                                         </span>
@@ -108,53 +108,48 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- 
                             <div class="field">
                                 <label for="" class="label">Password</label>
                                 <div class="control has-icons-left columns">
                                     <div class="column is-three-quarters">
-                                        <input type="userName" placeholder="*******" class="input" required>
+                                        <input id="password" placeholder="*******" class="input" required>
                                         <span class="icon is-small is-left">
                                             <i class="fa fa-user-circle"></i>
                                         </span>
                                     </div>
-                                    <div class="column">
-                                        <button class="button">
-                                            Update
-                                        </button>
-                                    </div>
+
                                 </div>
                             </div>
+                            -->
+
                             <div class="field">
                                 <label for="" class="label">Phone</label>
                                 <div class="control has-icons-left columns">
                                     <div class="column is-three-quarters">
-                                        <input type="userName" placeholder="e.g. 123-456-789" class="input" required>
+                                        <input id="phoneNumber" placeholder="e.g. 123-456-789" class="input" required>
                                         <span class="icon is-small is-left">
                                             <i class="fa fa-user-circle"></i>
                                         </span>
                                     </div>
-                                    <div class="column">
-                                        <button class="button">
-                                            Update
-                                        </button>
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="field">
                                 <label for="" class="label">Email Address</label>
                                 <div class="control has-icons-left columns">
                                     <div class="column is-three-quarters">
-                                        <input type="userName" placeholder="e.g. kmp@cs.unc.edu" class="input" required>
+                                        <input id="email" placeholder="e.g. kmp@cs.unc.edu" class="input" required>
                                         <span class="icon is-small is-left">
                                             <i class="fa fa-user-circle"></i>
                                         </span>
                                     </div>
-                                    <div class="column">
-                                        <button class="button">
-                                            Update
-                                        </button>
-                                    </div>
+
                                 </div>
+                                <br>
+                                <button class="button" onclick=update()>
+                                    Update
+                                </button>
                             </div>
                             <br>
                         </form>
@@ -163,9 +158,6 @@
             </div>
         </div>
     </section>
-
-
-
 
 </body>
 
