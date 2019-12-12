@@ -8,6 +8,9 @@
     <title>MyCenter</title>
     <link rel="stylesheet" href="../node_modules/bulma/css/bulma.css" />
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="js/handleUser.js"></script>
 </head>
 
 <body>
@@ -56,13 +59,7 @@
                 </div>
 
                 <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button" href="login.html">
-                                <strong>Log in</strong>
-                            </a>
-                        </div>
-                    </div>
+                    <div id="name"></div>
                 </div>
             </div>
         </nav>
@@ -98,7 +95,7 @@
                                 <label for="" class="label">User Name</label>
                                 <div class="control has-icons-left columns">
                                     <div class="column is-three-quarters">
-                                        <div id="userName">put your fetched user name here</div>
+                                        <div id="userName"></div>
                                         <span class="icon is-small is-left">
                                             <i class="fa fa-user-circle"></i>
                                         </span>
@@ -147,7 +144,7 @@
 
                                 </div>
                                 <br>
-                                <button class="button" onclick=update()>
+                                <button class="button">
                                     Update
                                 </button>
                             </div>

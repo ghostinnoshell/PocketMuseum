@@ -26,35 +26,46 @@ async function search() {
 
 function cards(item) {
   return `<div class="column is-one-quarter">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="${item.data.primaryImage}" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4">${item.data.title}</p>
-                <p class="subtitle is-6">${item.data.department}</p>
-              </div>
-            </div>
-  
+       <div class="card">
+         <div class="card-image">
+           <figure class="image is-4by3">
+             <img src="${item.data.primaryImage}" alt="Placeholder image">
+           </figure>
+         </div>
+         <div class="card-content">
+           <div class="media">
+             <div class="media-content">
+               <p class="title is-4">${item.data.title}</p>
+               <p class="subtitle is-6">${item.data.department}</p>
+             </div>
+           </div>
             <div class="content">
-              ${item.data.objectDate}
-              <a href="#">#css</a> <button oID = "${item.data.objectID}" class = "detail">details</button>
-              <br>
-            </div>
-          </div>
-        </div>
-      </div>`
+             ${item.data.objectDate}
+             <a href="#">#css</a> <button oID = "${item.data.objectID}" class = "detail">details</button>
+             <br>
+           </div>
+         </div>
+       </div>
+     </div>`
 }
 
-function showDetails() {
+async function showDetails() {
   const $tha = $(event.target).closest(".detail");
   let oID = $tha.prevObject["0"].attributes["oID"].value;
+  let comment;
+  try {
+    const response = await axios({
+      method: 'get',
+      url: `http://localhost:3000/public/exhibits/${oID}`,
+    });
+    comment = response.data.result.comment;
+  } catch (error) {
+    comment = "";
+  }
 
-  $('#searchResult').replaceWith(`<div id = "detailPage"><textarea id = "comment" class="textarea" value="e.g. Leave your thoughts here..."></textarea><button id = "commentButton" oID = "${oID}">submit</button></div>`);
+  $('#searchResult').replaceWith(`<div id = "detailPage">
+ <div>${comment}</div>
+ <textarea id = "comment" class="textarea" value="e.g. Leave your thoughts here..."></textarea><button id = "commentButton" oID = "${oID}">submit</button></div>`);
   const $detailPage = $('#detailPage');
   $detailPage.on("click", '#commentButton', saveComment);
 }
@@ -63,9 +74,6 @@ function saveComment() {
   const $tha = $(event.target).closest("#commentButton");
   let oID = $tha.prevObject["0"].attributes["oID"].value;
   let comment = document.getElementById("comment").value;
-  // alert(comment);
-  // alert(oID);
-
   async function postComment() {
     const response = await axios({
       method: 'post',
@@ -76,7 +84,6 @@ function saveComment() {
           "comment": comment
         }
       }
-      // headers: { Authorization: `Bearer ${jwt}` }
     });
     return response;
   }
@@ -93,15 +100,3 @@ $(function () {
   load();
 });
 
-// async function getComment() {
-//     const response = await axios({
-//         method: 'get',
-//         url: `http://localhost:3000/public/exhibits/${oID}`,
-//     });
-//     return response.data;
-// }
-
-// getComment().then(function (response){
-//  id = response.id;
-//  comment = response.comment;
-// });

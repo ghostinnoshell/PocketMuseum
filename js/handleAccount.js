@@ -35,7 +35,7 @@ export function getSignupInfo() {
         // let response = createAccount();
         // alert(`${response}`);
         createAccount().then(function (status) {
-            alert(status)
+            // alert(status)
             if (status == 200) {
                 alert(`Account Successfully Created!`);
                 window.location.replace("login.html");
@@ -48,16 +48,6 @@ export function getSignupInfo() {
     }
 
 }
-// async function createAccount() {
-//     const response = await axios({
-//         method: 'post',
-//         url: `http://localhost:3000/account/create`,
-//         data: content,
-//     });
-//     return response.status;
-// }
-// let response = createAccount();
-// alert(`${response}`);
 
 /**
  * This function handle log in 
@@ -70,7 +60,9 @@ export function getLoginInfo() {
         "name": userName,
         "pass": passwd,
     }
-    alert("login page");
+
+    localStorage.setItem('current', `${userName}`);
+    // alert("login page");
     async function LoginAccount() {
         const response = await axios({
             method: 'post',
@@ -85,13 +77,14 @@ export function getLoginInfo() {
         let jwtToken = response.data.jwt;
         // alert(jwtToken)
         localStorage.setItem(`${userName}`, `Bearer ${jwtToken}`);
-        alert(localStorage.getItem(`${userName}`))
+        // let jwt = localStorage.getItem(`${userName}`);
         try {
             if (response.status == 200) {
                 alert(`Successfully Logged in`);
                 //alert(jwtToken)
                 //window.location.replace("index.html");
                 window.location.replace("myCenter.html");
+
             }
         } catch (err) {
             alert(err.message);
@@ -101,10 +94,6 @@ export function getLoginInfo() {
         //     location.reload();
         // }
     });
-
-}
-
-export function geneMyCenter() {
 
 }
 

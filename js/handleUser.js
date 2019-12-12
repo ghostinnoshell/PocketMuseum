@@ -1,40 +1,42 @@
+
 $(function () {
+
+    let userName = localStorage.getItem('current');
+    $('#userName').replaceWith(`<div id = "userName">${userName}</div>`);
+    $('#name').replaceWith(`<div id = "name">${userName}</div>`);
     eventHandler();
 });
 
-export function getSignupInfo() {
-
-    function update() {
-        let newPassword = document.getElementById("password").value;
-        let newPhoneNumber = document.getElementById("phoneNumber").value;
-        let newEmail = document.getElementById("email").value;
-        console.log(newPassword);
-        console.log(newPhoneNumber);
-        console.log(newEmail);
-    }
-
+function updateInfo() {
+    let newPhoneNumber = document.getElementById("phoneNumber").value;
+    let newEmail = document.getElementById("email").value;
+    // alert(newPhoneNumber);
+    alert(newEmail);
 
     let content = {
-        "address": "1700 Baity hill",
-        "email": "123@yahoo.com",
-        // "email": email,
+        "phone": newPhoneNumber,
+        "email": newEmail,
     };
-    async function createInfo() {
+    async function personalInfo() {
         const response = await axios({
             method: 'post',
-            url: `http://localhost:3000/account/`,
-            data: content,
+            url: `http://localhost:3000/user/${userName}`,
+            data: {
+                "data": content
+            },
+            headers: { Authorization: `${jwt}` },
         });
-        return response.status;
+        return response;
     }
-    let response = createInfo();
-    // alert(`${response}`);
-
-    // }
+    personalInfo();
 
 }
 
 
-export function eventHandler() {
-    getSignupInfo();
+function eventHandler() {
+
+    $('.field').on('click', '.button', function (e) {
+        e.preventDefault();
+        updateInfo();
+    });
 }
