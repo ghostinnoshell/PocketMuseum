@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
     load();
 });
 
@@ -30,8 +30,8 @@ async function post(e) {
 
     function loadPosts() {
         let box = $('.box');
-        let $postCard = $('<div></div>')
-        // alert("post");
+        let $postCard = $('<br><div><strong>Moods</div>')
+            // alert("post");
         async function getBlog() {
             const response = await axios({
                 method: 'get',
@@ -40,20 +40,24 @@ async function post(e) {
             });
             return response;
         }
-        getBlog().then(function (allPost) {
+        getBlog().then(function(allPost) {
             lists = allPost.data.result;
-            alert(lists.yanli.content);
+            //alert(lists.yanli.content);
 
             for (let i in lists) {
-                alert(i);
-                alert(lists[i].content);
+                // alert(i);
+                // alert(lists[i].content);
+                $postCard.append(`<br>`);
+                $postCard.append(`<div>${i}:${lists[i].content}</div>`);
+
+                box.append($postCard);
             }
         });
 
 
     }
     postBlog().then(
-        function (e) {
+        function(e) {
             loadPosts();
         }
     );
@@ -77,7 +81,7 @@ function load() {
     //     post(e);
     // });
 
-    $('#post').on("click", function (e) {
+    $('#post').on("click", function(e) {
         e.preventDefault();
         post(e);
     });

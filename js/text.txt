@@ -1,0 +1,10 @@
+ getBlog().then(function(allPost) {
+                    //alert(allPost.result)
+                    let names = allPost.keys();
+                    alert(names)
+
+                    for (name in names) {
+                        alert(name)
+                        $postCard.append(`<div>${name}:${allPost[`${name}`][`content`]}</div>`);
+                    }
+                  
