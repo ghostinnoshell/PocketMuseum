@@ -1,5 +1,5 @@
 /**
- * handle take input from the login page
+ * handle take input from the signup page
  */
 
 $(function () {
@@ -8,7 +8,7 @@ $(function () {
 /**
  * This function is used to get user name and password
  */
-export function getSignupInfo() {
+function getSignupInfo() {
 
     let userName = $("input.input[type=userName]").val();
     let email = $("input.input[type=email]").val();
@@ -24,6 +24,16 @@ export function getSignupInfo() {
                 "description": email
             }
         };
+
+        // async function getUsers() {
+        //     const response = await axios({
+        //         method: 'get',
+        //         url: `http://localhost:3000/account/create`,
+        //     });
+        //     return response.status;
+        // }
+
+
         async function createAccount() {
             const response = await axios({
                 method: 'post',
@@ -32,12 +42,10 @@ export function getSignupInfo() {
             });
             return response.status;
         }
-        // let response = createAccount();
-        // alert(`${response}`);
+
         createAccount().then(function (status) {
-            // alert(status)
+            // alert(status);
             if (status == 200) {
-                alert(`Account Successfully Created!`);
                 window.location.replace("login.html");
             } else {
                 alert("Something goes wrong!");
@@ -46,13 +54,13 @@ export function getSignupInfo() {
         });
 
     }
-
 }
+
 
 /**
  * This function handle log in 
  */
-export function getLoginInfo() {
+function getLoginInfo() {
     //select input username
     let userName = $("input.userName[type=userName]").val();
     let passwd = $("input.passWord[type=password]").val();
@@ -62,43 +70,32 @@ export function getLoginInfo() {
     }
 
     localStorage.setItem('current', `${userName}`);
-    // alert("login page");
     async function LoginAccount() {
         const response = await axios({
             method: 'post',
             url: `http://localhost:3000/account/login`,
             data: content,
-            // headers: { Authorization: `Bearer ${jwt}` }
-
         });
         return response;
     }
     LoginAccount().then(function (response) {
         let jwtToken = response.data.jwt;
-        // alert(jwtToken)
         localStorage.setItem(`${userName}`, `Bearer ${jwtToken}`);
-        // let jwt = localStorage.getItem(`${userName}`);
         try {
             if (response.status == 200) {
-                alert(`Successfully Logged in`);
-                //alert(jwtToken)
-                //window.location.replace("index.html");
+                // alert(`Successfully Logged in`);
                 window.location.replace("myCenter.html");
 
             }
         } catch (err) {
             alert(err.message);
         }
-        // else if (response.status == 401) {
-        //     alert(`Cannot verify your account, please try again!`);
-        //     location.reload();
-        // }
     });
 
 }
 
 
-export function eventHandler() {
+function eventHandler() {
     let $rootLogin = $(`.rootLogin`);
     $rootLogin.on('click', '.button', function (e) {
         e.preventDefault();
