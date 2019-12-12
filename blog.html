@@ -24,8 +24,7 @@
                     <h3 class="is-bold is-family-sans-serif	 has-text-weight-bold	">POCKETMUSEUM</h3>
                 </a>
 
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                    data-target="navbarBasicExample">
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -77,10 +76,10 @@
             <div class="column is-one-quarter">
                 <!-- Side Menu -->
                 <aside class="menu">
-                    <p class="menu-label">
+                    <p class="menu-label" style="color: rgb(243, 143, 11);">
                         MySpace
                     </p>
-                    <ul class="menu-list">
+                    <ul class="menu-list" style="background-color:rgb(205, 251, 203);">
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="favorite.html">Favorites</a></li>
                         <li><a href="myworks.html">My Works</a></li>
@@ -89,33 +88,34 @@
                 </aside>
             </div>
 
-            <div class="column">
-            </div>
-        </div>
-        <div class="column container">
-            <div class="columns is-centered">
-                <form action="" class="box">
+            <div class="column" style="background-color:rgb(236, 253, 157);">
+                <div class="column container" style="background-color:powderblue;">
+                    <div class="columns is-centered">
+                        <form action="" class="box">
 
-                    <div class="posts"></div>
-                    <button>delete</button>
+                            <div class="posts"></div>
+                            <!-- <button>delete</button> -->
+                            <br>
+                            <input class="input" id="postContent">
+                            <br>
+                            <button id="post">set my mood</button>
+                        </form>
+                    </div>
                     <br>
-                    <input class="input" id="postContent">
                     <br>
-                    <button id="post">post</button>
-                </form>
-            </div>
-            <br>
-            <br>
-            <div class="columns is-centered">
-                <table id="mainField">
-                    <tr>
-                        <th>Author</th>
-                        <th class="blogContent">Blog Content</th>
-                        <th id="Delete">delete</th>
-                    </tr>
-                </table>
+                    <!-- <div class="columns is-centered">
+                                <table id="mainField">
+                                    <tr>
+                                        <th>Author</th>
+                                        <th class="blogContent">Blog Content</th>
+                                        <th id="Delete">delete</th>
+                                    </tr>
+                                </table>
+                            </div> -->
+                </div>
             </div>
         </div>
+
     </section>
 
 </body>
