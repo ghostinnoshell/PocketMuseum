@@ -53,6 +53,14 @@ function cards(item) {
 async function showDetails() {
   const $tha = $(event.target).closest(".detail");
   let oID = $tha.prevObject["0"].attributes["oID"].value;
+
+  const response = await axios({
+    method: 'get',
+    url: `http://localhost:3000/public/exhibits/${oID}`,
+  });
+  console.log("dsaf");
+  console.log(response);
+
   let comment;
   try {
     const response = await axios({
@@ -71,9 +79,10 @@ async function showDetails() {
   $detailPage.on("click", '#commentButton', saveComment);
 }
 
-function saveComment() {
+async function saveComment() {
   const $tha = $(event.target).closest("#commentButton");
   let oID = $tha.prevObject["0"].attributes["oID"].value;
+
   let comment = document.getElementById("comment").value;
   async function postComment() {
     const response = await axios({
