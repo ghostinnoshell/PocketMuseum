@@ -13,7 +13,7 @@
 <body>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="node_modules/axios/dist/axios.js"></script>
-    <script src="blogjs.js"></script>
+    <script src="js/blogjs.js"></script>
     <!-- NavBar -->
     <section id="section">
         <!-- logo -->
@@ -24,7 +24,8 @@
                     <h3 class="is-bold is-family-sans-serif	 has-text-weight-bold	">POCKETMUSEUM</h3>
                 </a>
 
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -98,16 +99,26 @@
                     <div class="posts"></div>
                     <button>delete</button>
                     <br>
-
-
                     <input class="input" id="postContent">
                     <br>
                     <button id="post">post</button>
                 </form>
             </div>
+            <br>
+            <br>
+            <div class="columns is-centered">
+                <table id="mainField">
+                    <tr>
+                        <th>Author</th>
+                        <th class="blogContent">Blog Content</th>
+                        <th id="Delete">delete</th>
+                    </tr>
+                </table>
+            </div>
         </div>
     </section>
+
 </body>
-<script src="blogjs.js"></script>
+<!-- <script src="js/blogjs.js"></script> -->
 
 </html>
