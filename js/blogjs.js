@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     load();
 });
 
@@ -18,7 +18,8 @@ async function post(e) {
 
         const response = await axios({
             method: 'post',
-            url: `http://localhost:3000/private/${userName}`,
+            url: `http://localhost:3000/private/lists/${userName}`,
+            // url: `http://localhost:3000/private/${userName}`,
             data: {
                 "data": content
             },
@@ -30,25 +31,29 @@ async function post(e) {
     function loadPosts() {
         let box = $('.box');
         let $postCard = $('<div></div>')
-            // alert("post");
+        // alert("post");
         async function getBlog() {
             const response = await axios({
                 method: 'get',
-                url: `http://localhost:3000/private/`,
+                url: `http://localhost:3000/private/lists`,
                 headers: { Authorization: `${jwt}` },
             });
             return response;
         }
-        getBlog().then(function(allPost) {
-            allPost.forEach(element => {
+        getBlog().then(function (allPost) {
+            lists = allPost.data.result;
+            alert(lists.yanli.content);
 
-            });
+            for (let i in lists) {
+                alert(i);
+                alert(lists[i].content);
+            }
         });
 
 
     }
     postBlog().then(
-        function(e) {
+        function (e) {
             loadPosts();
         }
     );
@@ -67,7 +72,12 @@ async function post(e) {
 
 function load() {
     const $root = $('.box');
-    $root.on("click", '#post', function(e) {
+    // $root.on("click", '#post', function (e) {
+    //     e.preventDefault();
+    //     post(e);
+    // });
+
+    $('#post').on("click", function (e) {
         e.preventDefault();
         post(e);
     });
