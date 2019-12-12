@@ -2,7 +2,7 @@
  * handle take input from the login page
  */
 
-$(function() {
+$(function () {
     eventHandler();
 });
 /**
@@ -34,11 +34,14 @@ export function getSignupInfo() {
         }
         // let response = createAccount();
         // alert(`${response}`);
-        createAccount().then(function(status) {
+        createAccount().then(function (status) {
             alert(status)
             if (status == 200) {
                 alert(`Account Successfully Created!`);
                 window.location.replace("index.html");
+            } else {
+                alert("Something goes wrong!");
+                location.reload();
             }
         });
 
@@ -67,39 +70,54 @@ export function getLoginInfo() {
         "name": userName,
         "pass": passwd,
     }
-    alert("login oage");
+    alert("login page");
     async function LoginAccount() {
         const response = await axios({
             method: 'post',
             url: `http://localhost:3000/account/login`,
             data: content,
+            // headers: { Authorization: `Bearer ${jwt}` }
+
         });
         return response;
     }
-    LoginAccount().then(function(response) {
-        let jwtToken = response.jwt;
-        //alert(jwtToken)
-        if (response.status == 200) {
-            alert(`Successfully Loged in`);
-            window.location.replace("index.html");
-        } else if (response.status == 401) {
-            alert(`Please Sign Up First!`);
+    LoginAccount().then(function (response) {
+        let jwtToken = response.data.jwt;
+        // alert(jwtToken)
+        localStorage.setItem(`${userName}`, `Bearer ${jwtToken}`);
+        alert(localStorage.getItem(`${userName}`))
+        try {
+            if (response.status == 200) {
+                alert(`Successfully Logged in`);
+                //alert(jwtToken)
+                //window.location.replace("index.html");
+                window.location.replace("myCenter.html");
+            }
+        } catch (err) {
+            alert(err.message);
         }
+        // else if (response.status == 401) {
+        //     alert(`Cannot verify your account, please try again!`);
+        //     location.reload();
+        // }
     });
 
 }
 
+export function geneMyCenter() {
+
+}
 
 
 export function eventHandler() {
     let $rootLogin = $(`.rootLogin`);
-    $rootLogin.on('click', '.button', function(e) {
+    $rootLogin.on('click', '.button', function (e) {
         e.preventDefault();
         getLoginInfo();
     });
 
     let $rootSignUp = $(`.rootSignUp`);
-    $rootSignUp.on('click', '.button', function(e) {
+    $rootSignUp.on('click', '.button', function (e) {
         e.preventDefault();
         getSignupInfo();
     });
