@@ -1,5 +1,4 @@
-
-$(function () {
+$(function() {
 
     let userName = localStorage.getItem('current');
     $('#userName').replaceWith(`<div id = "userName">${userName}</div>`);
@@ -12,7 +11,8 @@ function updateInfo() {
     let newEmail = document.getElementById("email").value;
     // alert(newPhoneNumber);
     alert(newEmail);
-
+    let userName = localStorage.getItem('current');
+    let jwt = localStorage.getItem(`${userName}`);
     let content = {
         "phone": newPhoneNumber,
         "email": newEmail,
@@ -35,7 +35,7 @@ function updateInfo() {
 
 function eventHandler() {
 
-    $('.field').on('click', '.button', function (e) {
+    $('.field').on('click', '.button', function(e) {
         e.preventDefault();
         updateInfo();
     });
