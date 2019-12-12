@@ -382,6 +382,12 @@
       "data": {
         "description": "haochenqi1997@gmail.com"
       }
+    },
+    "zion": {
+      "passwordHash": "$2b$10$20TDG2hHlCCX7XJSSqX7gOEOsSOwyHwkLDN5edxIN.mdrgon/Ej/K",
+      "data": {
+        "description": "zion.design@gmail.com"
+      }
     }
   }
 }
