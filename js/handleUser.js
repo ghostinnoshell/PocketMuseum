@@ -1,5 +1,4 @@
-
-$(function () {
+$(function() {
 
     let userName = localStorage.getItem('current');
     // alert(userName);
@@ -12,11 +11,9 @@ function updateInfo() {
     let newPhoneNumber = document.getElementById("phoneNumber").value;
     let newEmail = document.getElementById("email").value;
     // alert(newPhoneNumber);
-    // alert(newEmail);
+    alert(newEmail);
     let userName = localStorage.getItem('current');
     let jwt = localStorage.getItem(`${userName}`);
-    // alert(jwt);
-
     let content = {
         "phone": newPhoneNumber,
         "email": newEmail,
@@ -40,7 +37,7 @@ function updateInfo() {
 
 function eventHandler() {
 
-    $('.field').on('click', '.button', function (e) {
+    $('.field').on('click', '.button', function(e) {
         e.preventDefault();
         updateInfo();
     });

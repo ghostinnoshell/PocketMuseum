@@ -11,8 +11,11 @@
 </head>
 
 <body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="blogjs.js"></script>
     <!-- NavBar -->
-    <section>
+    <section id="section">
         <!-- logo -->
         <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
@@ -21,8 +24,7 @@
                     <h3 class="is-bold is-family-sans-serif	 has-text-weight-bold	">POCKETMUSEUM</h3>
                 </a>
 
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                    data-target="navbarBasicExample">
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -87,17 +89,25 @@
             </div>
 
             <div class="column">
-
             </div>
         </div>
+        <div class="column container">
+            <div class="columns is-centered">
+                <form action="" class="box">
 
+                    <div class="posts"></div>
+                    <button>delete</button>
+                    <br>
+
+
+                    <input class="input" id="postContent">
+                    <br>
+                    <button id="post">post</button>
+                </form>
+            </div>
+        </div>
     </section>
-
-
-
-
-
-
 </body>
+<script src="blogjs.js"></script>
 
 </html>
