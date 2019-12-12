@@ -1,12 +1,23 @@
 {
+  "authors": {
+    "first": "chris",
+    "last": "Doe",
+    "numBooks": 4
+  },
   "exhibits": {
-    "31975": {
-      "id": "31975",
-      "comment": "woor"
+    "207109": {
+      "id": "207109",
+      "comment": "jji"
     },
-    "587764": {
-      "id": "587764",
-      "comment": "heheh"
+    "475442": {
+      "id": "475442",
+      "comment": ""
     },
+    "577014": {
+      "id": "577014",
+      "comment": "uio"
+    },
+    "id": 1234,
+    "comment": "12345"
   }
 }

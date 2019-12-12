@@ -1,31 +1,31 @@
 let autoArray = [];
 async function search() {
-  const $resultPage = $('.resultPage');
-  const keywordSearch = document.getElementById("myInput").value;
-  const result = await axios({
-    method: 'get',
-    url: 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=' + keywordSearch,
-  });
-
-  let IDs = result.data.objectIDs;
-
-  $('#root').replaceWith(`<div id = "searchResult"></div>`)
-  const $searchResult = $('#searchResult');
-  $searchResult.append(`<div id = "grid" class="columns is-multiline is-mobile"></div>`);
-  const $grid = $('#grid');
-  $searchResult.on("click", '.detail', showDetails);
-  for (let i = 0; i < IDs.length; i++) {
+    const $resultPage = $('.resultPage');
+    const keywordSearch = document.getElementById("myInput").value;
     const result = await axios({
-      method: 'get',
-      url: 'https://collectionapi.metmuseum.org/public/collection/v1/objects/' + IDs[i],
+        method: 'get',
+        url: 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=' + keywordSearch,
     });
-    $grid.append(cards(result));
-  }
+
+    let IDs = result.data.objectIDs;
+
+    $('#root').replaceWith(`<div id = "searchResult"></div>`)
+    const $searchResult = $('#searchResult');
+    $searchResult.append(`<div id = "grid" class="columns is-multiline is-mobile"></div>`);
+    const $grid = $('#grid');
+    $searchResult.on("click", '.detail', showDetails);
+    for (let i = 0; i < IDs.length; i++) {
+        const result = await axios({
+            method: 'get',
+            url: 'https://collectionapi.metmuseum.org/public/collection/v1/objects/' + IDs[i],
+        });
+        $grid.append(cards(result));
+    }
 
 }
 
 function cards(item) {
-  return `<div class="column is-one-quarter">
+    return `<div class="column is-one-quarter">
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
@@ -50,58 +50,53 @@ function cards(item) {
       </div>`
 }
 
-function showDetails() {
-  const $tha = $(event.target).closest(".detail");
-  let oID = $tha.prevObject["0"].attributes["oID"].value;
+async function showDetails() {
+    const $tha = $(event.target).closest(".detail");
+    let oID = $tha.prevObject["0"].attributes["oID"].value;
+    let comment;
+    try {
+        const response = await axios({
+            method: 'get',
+            url: `http://localhost:3000/public/exhibits/${oID}`,
+        });
+        comment = response.data.result.comment;
+    } catch (error) {
+        comment = "";
+    }
 
-  $('#searchResult').replaceWith(`<div id = "detailPage"><textarea id = "comment" class="textarea" value="e.g. Leave your thoughts here..."></textarea><button id = "commentButton" oID = "${oID}">submit</button></div>`);
-  const $detailPage = $('#detailPage');
-  $detailPage.on("click", '#commentButton', saveComment);
+    $('#searchResult').replaceWith(`<div id = "detailPage">
+  <div>${comment}</div>
+  <textarea id = "comment" class="textarea" value="e.g. Leave your thoughts here..."></textarea><button id = "commentButton" oID = "${oID}">submit</button></div>`);
+    const $detailPage = $('#detailPage');
+    $detailPage.on("click", '#commentButton', saveComment);
 }
 
 function saveComment() {
-  const $tha = $(event.target).closest("#commentButton");
-  let oID = $tha.prevObject["0"].attributes["oID"].value;
-  let comment = document.getElementById("comment").value;
-  // alert(comment);
-  // alert(oID);
+    const $tha = $(event.target).closest("#commentButton");
+    let oID = $tha.prevObject["0"].attributes["oID"].value;
+    let comment = document.getElementById("comment").value;
+    async function postComment() {
+        const response = await axios({
+            method: 'post',
+            url: `http://localhost:3000/public/exhibits/${oID}`,
+            data: {
+                "data": {
+                    "id": oID,
+                    "comment": comment
+                }
+            }
+        });
+        return response;
+    }
 
-  async function postComment() {
-    const response = await axios({
-      method: 'post',
-      url: `http://localhost:3000/public/exhibits/${oID}`,
-      data: {
-        "data": {
-          "id": oID,
-          "comment": comment
-        }
-      }
-      // headers: { Authorization: `Bearer ${jwt}` }
-    });
-    return response;
-  }
-
-  postComment();
+    postComment();
 }
 
 function load() {
-  const $root = $('#root');
-  $root.on("click", '#searchButton', search);
+    const $root = $('#root');
+    $root.on("click", '#searchButton', search);
 };
 
-$(function () {
-  load();
+$(function() {
+    load();
 });
-
-// async function getComment() {
-//     const response = await axios({
-//         method: 'get',
-//         url: `http://localhost:3000/public/exhibits/${oID}`,
-//     });
-//     return response.data;
-// }
-
-// getComment().then(function (response){
-//  id = response.id;
-//  comment = response.comment;
-// });
